@@ -24,7 +24,13 @@
  */
 ?>
 <?php if ($search_results): ?>
-  <h2><?php print t('Search results');?></h2>
+  <h1>Total number of results: <?php print $GLOBALS['pager_total_items'][0] ?> </h1>
+  <h2 id="search_result"></h2>
+  <script>
+    (function() {
+      document.getElementById("search_result").innerHTML="Search results for the search of: "+document.getElementById("edit-keys").value;
+    })();
+  </script>
   <ol class="search-results <?php print $module; ?>-results">
     <?php print $search_results; ?>
   </ol>

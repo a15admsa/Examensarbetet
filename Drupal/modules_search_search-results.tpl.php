@@ -23,11 +23,12 @@
  * @ingroup themeable
  */
 ?>
+<h1 id="results-search">Total number of results: <b id="value-of-result"></b></h1>
+<h2 id="search_result"></h2>
 <?php if ($search_results): ?>
-  <h1>Total number of results: <?php print $GLOBALS['pager_total_items'][0] ?> </h1>
-  <h2 id="search_result"></h2>
   <script>
     (function() {
+      document.getElementById("value-of-result").innerHTML=<?php print $GLOBALS['pager_total_items'][0]?>;
       document.getElementById("search_result").innerHTML="Search results for the search of: "+document.getElementById("edit-keys").value;
     })();
   </script>
@@ -36,6 +37,10 @@
   </ol>
   <?php print $pager; ?>
 <?php else : ?>
-  <h2><?php print t('Your search yielded no results');?></h2>
+  <script>
+    (function() {
+      document.getElementById("value-of-result").innerHTML="0";
+    })();
+  </script>
   <?php print search_help('search#noresults', drupal_help_arg()); ?>
 <?php endif; ?>

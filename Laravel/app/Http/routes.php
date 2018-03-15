@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/search', function () {
+    return "Search Page";
+});
+
+Route::get('/post/{id}', function ($id) {
+    return $id;
+});
+
+Route::group(['middleware' => ['web']],  function(){
+
+});

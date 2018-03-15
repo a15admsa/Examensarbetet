@@ -19,9 +19,7 @@ Route::get('/search', function () {
     return "Search Page";
 });
 
-Route::get('/post/{id}', function ($id) {
-    return $id;
-});
+Route::get('/post/{id}', 'PostController@index');
 
 Route::group(['middleware' => ['web']],  function(){
 

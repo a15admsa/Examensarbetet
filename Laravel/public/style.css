@@ -1,0 +1,11 @@
+html, body {
+  padding: 1px 0px 0px 5px;
+}
+#logo {
+  height: 5%;
+  width: 5%;
+}
+
+.form {
+  margin-top: 20px;
+}

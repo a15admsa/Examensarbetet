@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('master')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-    </head>
-    <body>
-        <div class="container">
-            <h1>Post {{$id}}</h1>
-        </div>
-    </body>
-</html>
+@section('content')
+  <h1>Your id is: {{$id}}</h1>
+@stop

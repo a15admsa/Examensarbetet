@@ -18,6 +18,8 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('/{pagenr}', 'WelcomeController@nextSite');
 
+Route::get('/post/{id}', 'PostController@index');
+
 Route::get('/add', function (){
     $post = new Post;
     $post->title = 'New Admir';
@@ -36,10 +38,6 @@ Route::get('/read/{id}', function ($id){
        }
    } else return "No results found";
 });
-
-
-
-Route::get('/post', 'PostController@index');
 
 
 

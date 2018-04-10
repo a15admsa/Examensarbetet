@@ -9,8 +9,9 @@
     <a href="/laravel/public">
       <img src="{{asset('logo.png')}}" alt="logo" id="logo">
     </a>
-    <form class="form" method="post">
-      <input type="text" id="searchBox" name="searchBox" size="40" maxlength="128">
+    <form class="form" method="post" action="/laravel/public/search">
+      {{ csrf_field() }}
+      <input type="text" id="searchBox" name="searchBox" size="40">
       <input type="submit" name="search" value="Search">
     </form>
     <div>@yield('content')</div>

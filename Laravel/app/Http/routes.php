@@ -12,24 +12,27 @@
 */
 
 use Illuminate\Support\Facades\DB;
+use App\Post;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index');
 
-
+Route::get('/{pagenr}', 'WelcomeController@nextSite');
 
 Route::get('/add', function (){
-    DB::insert('insert into posts(title, body) values (?,?)', ['2 with Laravel', 'PHP IS THE BEST THING EVER AND LARAVEL MAKES IT AWESOME']);
+    $post = new Post;
+    $post->title = 'New Admir';
+    $post->body = 'New Body';
+    $post->save();
 });
 
 
 
 Route::get('/read/{id}', function ($id){
-   $results = DB::select('select * from posts where id = ?', [$id]);
+   $results = DB::select("select * from posts where title LIKE '%".$id."%' OR body LIKE '%".$id."%' ORDER BY title");
    if (!empty($results)){
        foreach ($results as $post){
-           return $post->title;
+           print_r($post->title."<br>");
+           print_r($post->body."<br>");
        }
    } else return "No results found";
 });
@@ -48,5 +51,18 @@ Route::get('/search', function () {
 
 Route::group(['middleware' => ['web']],  function(){
 
+});
+
+
+Route::get('/find', function (){
+   $posts = Post::all();
+   foreach ($posts as $post){
+       return $post->title;
+   }
+});
+
+
+Route::get('/create', function (){
+    Post::create(['title'=>'the Create  Method','body'=>'I am learning fast!']);
 });
 ?>

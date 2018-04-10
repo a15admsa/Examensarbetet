@@ -13,7 +13,7 @@
       <input type="text" id="searchBox" name="searchBox" size="40" maxlength="128">
       <input type="submit" name="search" value="Search">
     </form>
-    <h1>@yield('content')</h1>
-
+    <div>@yield('content')</div>
+    <div>@yield('login')</div>
   </body>
 </html>

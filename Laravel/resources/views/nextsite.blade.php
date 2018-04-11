@@ -17,22 +17,25 @@
             </li>
         @endfor
         </ul>
-        <?php
-            $amount = count($post);
-            $pages = intval($amount/10);
-        ?>
-        @if ($pages > 0)
-            <div id="navlist">
-                <nav>
-                    @for ($j = 1; $j < $pages+1; $j++)
-                        @if ($j == 1)
-                            <a href="{{ url('/') }}">{{$j}}</a>
-                        @else
-                            <a href="<?php echo "/laravel/public/page/".$j ?>">{{$j}}</a>
-                        @endif
-                    @endfor
-                </nav>
-            </div>
-        @endif
+    @endif
+@stop
+
+@section('navbar')
+    <?php
+    $amount = count($post);
+    $pages = intval($amount/10);
+    ?>
+    @if ($pages > 0)
+        <div id="navlist">
+            <nav>
+                @for ($j = 1; $j < $pages+1; $j++)
+                    @if ($j == 1)
+                        <a href="{{ url('/') }}">{{$j}}</a>
+                    @else
+                        <a href="<?php echo "/laravel/public/page/".$j ?>">{{$j}}</a>
+                    @endif
+                @endfor
+            </nav>
+        </div>
     @endif
 @stop

@@ -10,4 +10,8 @@ Route::post('/search', 'SearchController@index');
 
 Route::get('/search/{searchword}/{pagenr}', 'SearchController@nextSite');
 
+Route::get('/add', 'AddPostController@index');
+
+Route::post('/addpost', 'AddPostController@addtodatabase');
+
 Route::group(['middleware' => ['web']],  function(){});

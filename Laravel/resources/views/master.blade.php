@@ -14,7 +14,10 @@
       <input type="text" id="searchBox" name="searchBox" size="40">
       <input type="submit" name="search" value="Search">
     </form>
-    <div>@yield('content')</div>
-    <div>@yield('login')</div>
+    <div style="display: flex;">
+      <div>@yield('content')</div>
+      <div style="margin-left: 60vw; z-index: 10;">@yield('login')</div>
+    </div>
+    <div>@yield('navbar')</div>
   </body>
 </html>

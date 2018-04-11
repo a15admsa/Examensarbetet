@@ -17,23 +17,28 @@
                 @endif
             @endforeach
         </ul>
-        <?php
-        $amount = count($post);
-        $pages = intval(($amount-1)/10);
-        ?>
-        @if ($pages > 0)
-            <div id="navlist">
-                <nav>
-                    {{ csrf_field() }}
-                    @for ($j = 0; $j < $pages+1; $j++)
-                        @if ($j == 0)
-                            <a href="{{ url('/search') }}">{{$j+1}}</a>
-                        @else
-                            <a href="<?php echo "/laravel/public/search/".$_POST['searchBox']."/".($j+1) ?>">{{$j+1}}</a>
-                        @endif
-                    @endfor
-                </nav>
-            </div>
-        @endif
+    @else
+        <h1>You got <b id="hits">0</b> hits for the search of <b id="searchWordUsed"><?php echo $_POST['searchBox']?></b></h1>
+    @endif
+@stop
+
+@section('navbar')
+    <?php
+    $amount = count($post);
+    $pages = intval(($amount-1)/10);
+    ?>
+    @if ($pages > 0)
+        <div id="navlist">
+            <nav>
+                {{ csrf_field() }}
+                @for ($j = 0; $j < $pages+1; $j++)
+                    @if ($j == 0)
+                        <a href="{{ url('/search') }}">{{$j+1}}</a>
+                    @else
+                        <a href="<?php echo "/laravel/public/search/".$_POST['searchBox']."/".($j+1) ?>">{{$j+1}}</a>
+                    @endif
+                @endfor
+            </nav>
+        </div>
     @endif
 @stop

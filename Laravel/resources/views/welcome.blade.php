@@ -16,26 +16,43 @@
             @endif
         @endforeach
         </ul>
-        <?php
-            $amount = count($post);
-            $pages = intval($amount/10);
-        ?>
-        @if ($pages > 0)
-            <div id="navlist">
-                <nav>
-                    @for ($j = 1; $j < $pages+1; $j++)
-                        @if ($j == 1)
-                            <a href="{{ url('/') }}">{{$j}}</a>
-                        @else
-                            <a href="<?php echo "/laravel/public/page/".$j ?>">{{$j}}</a>
-                        @endif
-                    @endfor
-                </nav>
-            </div>
-        @endif
     @endif
 @stop
 
 @section('login')
+    <form action="{{url('/')}}">
+        <h3>User login</h3>
+        <input type="text" size="20">
+        <h4>Password <b style="color: red;">*</b></h4>
+        <input type="text" size="20">
+        <ul>
+            <li>
+                <a href="/#" style="pointer-events: none;">Create new account</a>
+            </li>
+            <li>
+                <a href="/#" style="pointer-events: none;">Request new password</a>
+            </li>
+        </ul>
+        <input type="submit" value="Log in" onclick="return false">
+    </form>
+@stop
 
+@section('navbar')
+    <?php
+    $amount = count($post);
+    $pages = intval($amount/10);
+    ?>
+    @if ($pages > 0)
+        <div id="navlist">
+            <nav>
+                @for ($j = 1; $j < $pages+1; $j++)
+                    @if ($j == 1)
+                        <a href="{{ url('/') }}">{{$j}}</a>
+                    @else
+                        <a href="<?php echo "/laravel/public/page/".$j ?>">{{$j}}</a>
+                    @endif
+                @endfor
+            </nav>
+        </div>
+    @endif
 @stop

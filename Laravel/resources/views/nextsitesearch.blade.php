@@ -18,21 +18,24 @@
                 </li>
             @endfor
         </ul>
-        <?php
-        $amount = count($post[0]);
-        $pages = intval(($amount-1)/10);
-        ?>
-        <div id="navlist">
-            <nav>
-                {{ csrf_field() }}
-                @for ($j = 0; $j < $pages+1; $j++)
-                    @if ($j == 1)
-                        <a href="{{ url('/search') }}">{{$j+1}}</a>
-                    @else
-                        <a href="<?php echo "/laravel/public/search/".($j+1) ?>">{{$j+1}}</a>
-                    @endif
-                @endfor
-            </nav>
-        </div>
     @endif
+@stop
+
+@section('navbar')
+    <?php
+    $amount = count($post[0]);
+    $pages = intval(($amount-1)/10);
+    ?>
+    <div id="navlist">
+        <nav>
+            {{ csrf_field() }}
+            @for ($j = 0; $j < $pages+1; $j++)
+                @if ($j == 1)
+                    <a href="{{ url('/search') }}">{{$j+1}}</a>
+                @else
+                    <a href="<?php echo "/laravel/public/search/".($j+1) ?>">{{$j+1}}</a>
+                @endif
+            @endfor
+        </nav>
+    </div>
 @stop

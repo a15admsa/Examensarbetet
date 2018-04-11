@@ -16,6 +16,7 @@
                 <a href="<?php echo "/laravel/public/post/".$i ?>" style="padding-left: 15px;">Read more</a>
             </li>
         @endfor
+        </ul>
         <?php
             $amount = count($post);
             $pages = intval($amount/10);

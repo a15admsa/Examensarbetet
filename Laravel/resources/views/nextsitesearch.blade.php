@@ -11,9 +11,9 @@
         <ul style="list-style-type:none;padding:0px;">
             @for ($i = $postParsingValue; $i < count($post[0]); $i++)
                 <li>
-                    <a href="<?php echo "/laravel/public/post/".$i ?>"><h3 style="width: 500px;">{{$post[0][$i]->title}}</h3></a>
-                    <p>Submitted by a15admsa on {{$post[0][$i]->created_at}}</p>
-                    <p style="width: 500px;">{{substr($post[0][$i]->body,0,250)}}</p>
+                    <a href="<?php echo "/laravel/public/post/".$i ?>"><h3 style="width: 500px;">{{$post[0][$i]['title']}}</h3></a>
+                    <p>Submitted by a15admsa on {{$post[0][$i]['created_at']}}</p>
+                    <p style="width: 500px;">{{substr($post[0][$i]['body'],0,250)}}</p>
                     <a href="<?php echo "/laravel/public/post/".$i ?>" style="padding-left: 15px;">Read more</a>
                 </li>
             @endfor

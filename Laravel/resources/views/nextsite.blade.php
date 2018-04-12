@@ -10,9 +10,9 @@
         <ul style="list-style-type:none;padding:0px;">
         @for ($i = $postParsingValue; $i < $postParsingValue+10; $i++)
             <li>
-                <a href="<?php echo "/laravel/public/post/".$i ?>"><h3 style="width: 500px;">{{$post[$i]->title}}</h3></a>
-                <p>Submitted by a15admsa on {{$post[$i]->created_at}}</p>
-                <p style="width: 500px;">{{substr($post[$i]->body,0,250)}}</p>
+                <a href="<?php echo "/laravel/public/post/".$i ?>"><h3 style="width: 500px;">{{$post[$i]['title']}}</h3></a>
+                <p>Submitted by a15admsa on {{$post[$i]['created_at']}}</p>
+                <p style="width: 500px;">{{substr($post[$i]['body'],0,250)}}</p>
                 <a href="<?php echo "/laravel/public/post/".$i ?>" style="padding-left: 15px;">Read more</a>
             </li>
         @endfor

@@ -84,3 +84,12 @@ body.two-sidebars #sidebar-first {
 .form-type-textfield label {
   display: none;
 }
+
+.search-results {
+  padding-left: 0px;
+  width: 500px;
+}
+
+.content {
+  width: 500px;
+}

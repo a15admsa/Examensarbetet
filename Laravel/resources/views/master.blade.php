@@ -12,7 +12,7 @@
     <form class="form" method="post" action="/laravel/public/search">
       {{ csrf_field() }}
       <input type="text" id="searchBox" name="searchBox" size="40">
-      <input type="submit" name="search" value="Search">
+      <input type="submit" name="search" value="Search" id="submitButton">
     </form>
     <div style="display: flex;">
       <div>@yield('content')</div>

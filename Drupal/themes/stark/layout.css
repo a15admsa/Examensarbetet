@@ -93,3 +93,12 @@ body.two-sidebars #sidebar-first {
 .content {
   width: 500px;
 }
+
+.search-snippet{
+  height: 55px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: inline-block;
+  font-weight: normal;    
+}
